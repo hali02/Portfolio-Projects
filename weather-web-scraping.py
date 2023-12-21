@@ -9,19 +9,18 @@ import time
 import datetime
 
 def rendering(url):
-    
-        #install homebrew before running script
-        cService = webdriver.ChromeService(executable_path='/opt/homebrew/bin/chromedriver')
-        driver = webdriver.Chrome(service = cService)
-        driver.get(url)                                          # load the web page from the URL
-        ##print(4)
-        time.sleep(1)                                            # wait for the web page to load
-        ##print(1)
-        render = driver.page_source                              # get the page source HTML
-        ##print(2)
-        driver.quit()                                            # quit ChromeDriver
-        ##print(3)
-        return render
+    #install homebrew before running script
+    cService = webdriver.ChromeService(executable_path='/opt/homebrew/bin/chromedriver')
+    driver = webdriver.Chrome(service = cService)
+    #load the web page from the URL
+    driver.get(url)                                         
+    #wait for the web page to load
+    time.sleep(1)
+    #get the page source HTML
+    render = driver.page_source                              
+    #quit ChromeDriver
+    driver.quit()                                            
+    return render
 
 
 ##get list of dates ready
