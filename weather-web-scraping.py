@@ -1,5 +1,9 @@
-##import libraries
+#/
+# Adapted from a script by the University of Virginia
+# Link: https://library.virginia.edu/data/articles/getting-started-with-web-scraping-in-python
+#/
 
+##import libraries
 import os
 
 from bs4 import BeautifulSoup
@@ -73,5 +77,5 @@ for date in date_range_list:
     f = open(outfile, 'a')
     f.write(date + ',') # write the date of the recorded data into the file
     f.write(','.join(row[:12])) # write just the temperature and precipitation data into the file
-    f.write('\n') # new line, in case you want to append more rows to the same file later on
+    f.write('\n') # new line
     f.close()
