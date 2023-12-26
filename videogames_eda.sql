@@ -81,7 +81,7 @@ SELECT
 FROM VideoGamesSales
 GROUP BY genre
 
-What genre has sold the most games?
+--What genre has sold the most games?
 SELECT
 	genre,
 	SUM(global) as total_sold
