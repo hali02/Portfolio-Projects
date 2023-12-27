@@ -26,8 +26,15 @@ data = r.json()
 stock_rsi_df = pd.json_normalize(data['Technical Analysis: RSI'])
 
 #format data as desired
+#transpose data to more useful form
 stock_rsi_df_T = stock_rsi_df.T
 stock_rsi_df_T = stock_rsi_df_T.rename(columns={ 0: 'RSI'})
+#create a unique date column
+stock_rsi_df_T = stock_rsi_df_T.reset_index()
+stock_rsi_df_T = stock_rsi_df_T.rename(columns={ 'index': 'date'})
+stock_rsi_df_T[['1','2']] = stock_rsi_df_T['date'].str.split('.',expand=True)
+stock_rsi_df_T = stock_rsi_df_T.drop(['date', '2'], axis = 1)
+stock_rsi_df_T = stock_rsi_df_T.rename(columns={ '1': 'date'})
 
 #save to excel
 excel_name_rsi = symbol+'_RSI.xlsx'
