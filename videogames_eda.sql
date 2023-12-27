@@ -132,12 +132,12 @@ ORDER BY avg_sold
 
 --Does the price of the game effect how many units are sold?
 SELECT CASE
-	WHEN cost < 60 THEN 'Cheap'
-  WHEN review BETWEEN 60 AND 100 THEN 'Moderate'
-  WHEN review BETWEEN 100 AND 150 THEN 'Expensive'
+	WHEN price.cost < 60 THEN 'Cheap'
+  WHEN price.cost BETWEEN 60 AND 100 THEN 'Moderate'
+  WHEN price.cost BETWEEN 100 AND 150 THEN 'Expensive'
   ELSE 'Very Expensive'
     END AS price_bucket,
-  AVG(global) as avg_sold
+  AVG(sales.global) as avg_sold
 FROM 
 	VideoGamesSales as sales
 LEFT JOIN 
